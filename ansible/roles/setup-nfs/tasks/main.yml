@@ -1,0 +1,11 @@
+---
+
+- name: Mount NFS drives
+  mount:
+    path: "{{ item.name }}"
+    src: "{{ item.device_src }}"
+    fstype: "{{ item.fstype }}"
+    opts: "{{ item.opts }}"
+    state: "{{ item.state }}"
+  with_items:
+    - "{{ nfs_mounts }}"

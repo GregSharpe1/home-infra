@@ -1,0 +1,8 @@
+---
+
+nfs_mounts:
+  - name: "/media"
+    device_src: "/dev/sda"
+    fstype: "ext4"
+    opts: "defaults"
+    state: "mounted"
