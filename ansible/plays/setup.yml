@@ -1,0 +1,10 @@
+---
+
+# Run the following with the -u {username} and --ask-become-pass arguements
+# this will create the users required for this setup
+
+- name: Create the required users
+  hosts: all
+  become: yes
+  roles:
+    - { role: roles/ansible-role-users, tags: ['base', 'users'] }

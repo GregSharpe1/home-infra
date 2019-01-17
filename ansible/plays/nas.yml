@@ -1,0 +1,7 @@
+---
+
+- name: Let's install base packages for the NAS devices
+  hosts: nfs
+  become: yes
+  roles:
+    - { roles: roles/ansible-role-docker, tags: ['nfs', 'docker'] }
