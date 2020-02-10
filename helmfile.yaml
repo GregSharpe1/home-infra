@@ -1,0 +1,41 @@
+repositories:
+  - name: stable
+    url: https://kubernetes-charts.storage.googleapis.com
+    #  - name: incubator
+    #    url: https://kubernetes-charts-incubator.storage.googleapis.com
+
+releases:
+  - name: hassio
+    namespace: home-assistant
+    chart: stable/home-assistant
+    values:
+      - image:
+          tag: "0.105.2"
+          #      - configurator:
+          #          enabled: true
+
+    #  - name: cert-manager
+    #    namespace: utils
+    #    chart: stable/cert-manager
+    #  - name: datadog
+    #    namespace: monitoring
+    #    chart: stable/datadog
+  - name: grafana
+    namespace: monitoring
+    chart: stable/grafana
+  - name: prometheus
+    namespace: monitoring
+    chart: stable/prometheus
+    values:
+      - alertmanager:
+          enabled: false
+      - kubeStateMetrics:
+          enabled: false
+      - pushgateway:
+          enabled: false
+    #  - name: jenkins
+    #    namespace: ci
+    #    chart: stable/jenkins
+    #  - name: drone
+    #    namespace: ci
+    #    chart: stable/drone
